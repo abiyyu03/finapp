@@ -6,6 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@yield('title', 'Dashboard') · {{ config('app.name', 'FinApp') }}</title>
+        <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
 
         @fonts
         @vite(['resources/css/app.css', 'resources/js/app.js'])
