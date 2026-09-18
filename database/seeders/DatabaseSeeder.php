@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(PermissionSeeder::class);
 
-        $company = Company::firstOrCreate(['name' => 'Demo Company']);
+        $company = Company::firstOrCreate(['name' => 'King']);
 
         $this->callWith(AccountSeeder::class, ['company' => $company]);
 
@@ -37,5 +37,7 @@ class DatabaseSeeder extends Seeder
         ], [
             'role_id' => Role::where('name', Role::ADMIN)->value('id'),
         ]);
+
+        $this->callWith(ExampleTransactionSeeder::class, ['company' => $company, 'user' => $admin]);
     }
 }
